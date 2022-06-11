@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 from .serializers import *
 from rest_framework import status
@@ -6,7 +6,62 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.http import HttpResponse, JsonResponse 
 
+import requests
+
+from .forms import NewUserForm
+from django.contrib.auth import login, authenticate, logout
+from django.contrib import messages
+from django.contrib.auth.forms import AuthenticationForm
+
 # Create your views here.
+def register_request(request):
+    if request.method == "POST":
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            messages.success(request, "Registration successful." )
+            return redirect("index")
+        messages.error(request, "Unsuccessful registration. Invalid information.")
+    form = NewUserForm()
+    return render(request, "register.html", context={"register_form":form})
+
+def login_request(request):
+    if request.method == "POST":
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.info(request, f"You are now logged in as {username}.")
+                return redirect("index")
+            else:
+                messages.error(request,"Invalid username or password.")
+        else:
+            messages.error(request,"Invalid username or password.")
+    form = AuthenticationForm()
+    return render(request=request, template_name="login.html", context={"login_form":form})
+
+def logout_request(request):
+    logout(request)
+    messages.info(request, "You have successfully logged out.") 
+    return redirect("login")
+
+
+def index(request):
+    # response=requests.get('http://127.0.0.1:8080/profile/').json()
+    projects = requests.get('http://127.0.0.1:8080/project/').json()
+    return render(request, "index.html", {"projects": projects})
+
+
+
+
+
+
+
+
 #  create endpoint for profile_list
 @api_view(['GET','POST'])
 def profile_list(request):
@@ -47,6 +102,16 @@ def profile_detail(request,id):
 # create endpoint for projects
 @api_view(['GET',])
 def project_list(request):
-    pass
+    if request.method == 'GET':
+        project = Project.objects.all()
+        serialize = ProjectSerializer(project,many=True)
+        return Response(serialize.data)
+
+    elif request.method == 'POST':
+        serialize = ProjectSerializer(data=request.data)
+        if serialize.is_valid():
+            serialize.save()
+            return Response(serialize.data, status.HTTP_201_CREATED)
+        return Response(serialize.errors, status.HTTP_400_BAD_REQUEST)
 
 
