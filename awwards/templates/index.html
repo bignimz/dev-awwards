@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block content %}
+<h2>Home Page</h2>
+
+<div class="projects d-flex g-2 justify-content-between mt-5">
+  {% for project in projects %}
+  <div class="card" style="width: 18rem">
+    <img src="{{project.image}}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{project.title}}</h5>
+      <p class="card-text">Added by: {{project.profile.name}}</p>
+      <p class="card-text">Created: {{project.date}} ago</p>
+      <a href="#" class="btn btn-primary">Rate Project</a>
+    </div>
+  </div>
+
+  {% endfor %}
+</div>
+{% endblock %}
