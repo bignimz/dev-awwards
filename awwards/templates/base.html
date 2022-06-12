@@ -32,7 +32,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            {% if user.is_authenticated %}
             <li class="nav-item">
               <a
                 class="nav-link active"
@@ -41,6 +40,7 @@
                 >Home</a
               >
             </li>
+            {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'logout' %}">Logout</a>
             </li>
@@ -56,7 +56,7 @@
             </li>
             {% endif %}
           </ul>
-          <form class="d-flex" role="search">
+          <form class="d-flex mx-3" role="search">
             <input
               class="form-control me-2"
               type="search"
@@ -67,6 +67,9 @@
               Search
             </button>
           </form>
+          <a href="{% url 'add_project' %}">
+            <button class="btn btn-success" type="submit">Add Project</button>
+          </a>
         </div>
       </div>
     </nav>
