@@ -1,6 +1,9 @@
 from django import forms
+from django.forms import ModelForm
+from awwards.models import Project
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+
 
 
 # Create your forms here.
@@ -24,3 +27,13 @@ class AuthenticationForm():
     class Meta:
         model = User
         fields = ('username', 'password')
+
+
+class ProjectForm(forms.ModelForm):
+	class Meta:
+		model = Project
+		fields = '__all__'
+
+
+
+
