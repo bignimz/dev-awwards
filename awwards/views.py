@@ -1,14 +1,15 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from .models import *
 from .serializers import *
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from django.http import HttpResponse, JsonResponse 
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect 
+from django.urls import reverse
 
 import requests
 
-from .forms import NewUserForm
+from .forms import NewUserForm, ProjectForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
@@ -51,10 +52,29 @@ def logout_request(request):
 
 
 def index(request):
-    # response=requests.get('http://127.0.0.1:8080/profile/').json()
     projects = requests.get('http://127.0.0.1:8080/project/').json()
     return render(request, "index.html", {"projects": projects})
 
+def project_details(request, project_id):
+    # This restricts only logged in users to access this page
+    if not request.user.is_authenticated:
+        messages.info(request, "You must be logged in to access this page.") 
+        return HttpResponseRedirect(reverse('login'))
+    results = get_object_or_404(Project, id=project_id)
+    context = {'results': results}
+    return render(request, "project.html", context)
+
+
+# Adding a new project
+def new_project(request):
+    form =ProjectForm()
+    if request.method == 'POST':
+        form = ProjectForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('add_project')
+
+    return render(request, 'add_project.html', {'form': form})
 
 
 
@@ -115,3 +135,24 @@ def project_list(request):
         return Response(serialize.errors, status.HTTP_400_BAD_REQUEST)
 
 
+@api_view(['GET','PUT','DELETE'])
+def project_detail(request,id):
+    try:
+        project=Project.objects.get(id=id)
+    except Project.DoesNotExist:
+        return HttpResponse(status=status.HTTP_404_NOT_FOUND)
+    
+    if request.method == 'GET':
+        serialize = ProjectSerializer(project)
+        return Response(serialize.data)
+    
+    elif request.method == 'PUT':
+        serialize = ProjectSerializer(project, request.data)
+        if serialize.is_valid():
+            serialize.save()
+            return Response(serialize.data)
+        return Response(serialize.errors,status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method =='DELETE':
+        project.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT_)
