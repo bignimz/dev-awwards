@@ -1,0 +1,124 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
+
+/* body {
+    background-color: black;
+} */
+
+/* .dark-theme {
+    background-color: #111;
+} */
+
+.hero {
+    height: 100vh;
+    background-image: linear-gradient(to left bottom, rgba(0,0,0, .4), rgba(0,0,0, .2)), url("https://images.unsplash.com/photo-1553532434-5ab5b6b84993?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.hero-section {
+    width: 100%;
+}
+
+.hero-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 64px;
+    text-transform: uppercase;
+    color: #fef;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #fff;
+    border-radius: 10px;
+    background-color: #16ae16;
+    padding: 30px;
+    transition: all linear .4s;
+}
+
+.hero-content:hover {
+    border: 1px solid #16ae16;
+    background-color: #000;
+}
+.devaw {
+    text-transform: uppercase;
+    outline: 1px solid #16ae16;
+}
+
+.btn-devaw {
+    text-transform: uppercase;
+    background-color: #16ae16;
+}
+
+.btn-devaw:hover {
+    outline: 1px solid #16ae16;
+    background-color: transparent;
+    color: #fff;
+}
+
+/* Headings */
+.devaw-heading {
+    padding-bottom: 20px;
+    border-bottom: 3px solid #16ae16;
+    color: #16ae16;
+}
+
+.devaw-title {
+    font-size: 58px;
+}
+
+/* Project Card */
+.devaw-card {
+    position: relative;
+    cursor: pointer;
+    transition: all ease-in .3s;
+}
+
+.devaw-card:hover {
+    border: 2px solid #16ae16;
+    top: -5px;
+}
+
+/* .devaw-body {
+    display: block;
+} */
+
+.overlay {
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.card-body {
+    position: absolute;
+    top: 20px;
+    z-index: 9;
+}
+
+/* Project Form */
+.proj-form {
+    width: 600px;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 10px;
+    opacity: .8;
+    border-bottom: 4px solid #16ae16;
+}
+
+.addProject {
+    background-image: linear-gradient(to bottom, rgb(0, 32, 0, 0.8), rgb(0, 32, 0, 0.6)), url("https://media.istockphoto.com/photos/close-up-low-angle-view-group-of-star-shape-crystal-trophy-picture-id1347499538?b=1&k=20&m=1347499538&s=170667a&w=0&h=XpIGSaBk2QYHpn9tcLDR3CBtJwgkEowbe7graOODBKw=");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 90vh;
+    padding: 30px;
+}
