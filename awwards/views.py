@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect 
 from django.urls import reverse
+from django.db.models import Q
 
 import requests
 
@@ -13,6 +14,7 @@ from .forms import NewUserForm, ProjectForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def register_request(request):
@@ -52,21 +54,26 @@ def logout_request(request):
 
 
 def index(request):
-    projects = requests.get('http://127.0.0.1:8080/project/').json()
+    projects = requests.get('http://127.0.0.1:8000/project/').json()
     return render(request, "index.html", {"projects": projects})
 
 def project_details(request, project_id):
     # This restricts only logged in users to access this page
+    print(project_id)
     if not request.user.is_authenticated:
         messages.info(request, "You must be logged in to access this page.") 
         return HttpResponseRedirect(reverse('login'))
-    results = get_object_or_404(Project, id=project_id)
+    results = Project.objects.filter(id=project_id).get()
+    print(results.image)
     context = {'results': results}
     return render(request, "project.html", context)
 
 
 # Adding a new project
 def new_project(request):
+    if not request.user.is_authenticated:
+        messages.info(request, "You must be logged in to access this page.") 
+        return HttpResponseRedirect(reverse('login'))
     form =ProjectForm()
     if request.method == 'POST':
         form = ProjectForm(request.POST)
@@ -77,6 +84,17 @@ def new_project(request):
     return render(request, 'add_project.html', {'form': form})
 
 
+# Search for projects
+def search(request):
+    if request.method == 'GET':
+        query = request.GET.get('query')
+        if query:
+            projects = Project.objects.filter(title__icontains=query)
+            return render(request, 'search.html',{"projects": projects})
+
+        else:
+            message = "You haven't searched for any image"
+            return render(request, 'search.html',{"message":message})
 
 
 
