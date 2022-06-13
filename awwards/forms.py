@@ -3,6 +3,7 @@ from django.forms import ModelForm
 from awwards.models import Project
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.forms import ModelForm, TextInput, EmailInput
 
 
 
@@ -33,6 +34,19 @@ class ProjectForm(forms.ModelForm):
 	class Meta:
 		model = Project
 		fields = '__all__'
+
+	widgets = {
+            'name': TextInput(attrs={
+                'class': "form-control",
+                'style': 'max-width: 300px;',
+                'placeholder': 'Project Title'
+                }),
+            'email': EmailInput(attrs={
+                'class': "form-control", 
+                'style': 'max-width: 300px;',
+                'placeholder': 'Email'
+                })
+        }
 
 
 
