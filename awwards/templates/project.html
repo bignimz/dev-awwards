@@ -1,10 +1,69 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="row">
-  <h2 class="text-center">Project</h2>
   <div class="card">
-    <img src="{{project.image}}" alt="" style="height: 500px" />
-    <h3>{{project.title}}</h3>
+    <img
+      class="img-fluid"
+      src="{{results.image}}"
+      alt=""
+      style="height: auto"
+    />
+    <a href="{{results.link}}" target="_blank" class="proj-btn">
+      <button class="btn btn-devaw" style="max-width: 250px">Visit Site</button>
+    </a>
+    <div class="container mt-5">
+      <div class="project-wrapper row row-cols-md-2 row-cols-sm-1">
+        <div class="left col-5">
+          <img
+            class="img-fluid"
+            src="{{results.image}}"
+            alt=""
+            style="max-height: 600px; width: 90%"
+          />
+        </div>
+        <div class="right col-5">
+          <h2 class="mb-4">About This Project</h2>
+          <h3>{{results.title}}</h3>
+          <p>{{results.description}}</p>
+          <form>
+            <h3>Give your rating</h3>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+              />
+              <small id="emailHelp" class="form-text text-muted"
+                >We'll never share your email with anyone else.</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputPassword1"
+                placeholder="Password"
+              />
+            </div>
+            <div class="form-group form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="exampleCheck1"
+              />
+              <label class="form-check-label" for="exampleCheck1"
+                >Check me out</label
+              >
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
