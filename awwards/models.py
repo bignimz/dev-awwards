@@ -10,7 +10,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=200)
     image = models.CharField(max_length=255)
     username = models.CharField(max_length=200)
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True)
     location = models.CharField(max_length=60, blank=True)
     contact = models.EmailField(max_length=100, blank=True)
 
@@ -21,6 +21,7 @@ class Profile(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=200)
     image = models.URLField(max_length=255, default='https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y')
+    description = models.TextField(blank=True)
     link = models.URLField(max_length=255)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="projects", null=True, blank=True)
     posted = models.DateTimeField(auto_now_add=True)
