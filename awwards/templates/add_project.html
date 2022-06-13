@@ -1,11 +1,13 @@
 {% extends "base.html" %} {% load crispy_forms_tags %}{% block content %}
 
-<div class="row">
-  <h2 class="text-center">Project</h2>
-  <form method="POST">
-    {% csrf_token %} {{ form|crispy}}
-    <button class="btn btn-primary" type="submit">Login</button>
-  </form>
+<div class="addProject">
+  <div class="container my-5">
+    <h2 class="text-center text-white">Add Your Project</h2>
+    <form method="POST" class="proj-form">
+      {% csrf_token %} {{ form|crispy}}
+      <button class="btn btn-primary" type="submit">ADD PROJECT</button>
+    </form>
+  </div>
 </div>
 
 {% endblock %}
