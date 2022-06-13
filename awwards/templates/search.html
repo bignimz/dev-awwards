@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block content %}
+<h3 class="my-3 text-center">Search Results</h3>
+<div class="container">
+  {% if projects %}
+  <p>Search Results for {{message}} has found {{projects|length}} Projects!</p>
+  {% else %}
+  <p>No Projects Found For Search "{{message}}"</p>
+  {% endif %}
+  <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-1">
+    {% if projects %} {% for project in projects %}
+    <div class="col-lg-3 col-md-3 col-sm-12 my-3 mx-3">
+      <div class="card" style="width: 18rem">
+        <img src="{{project.image}}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{project.title}}</h5>
+          <a
+            href="#"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal{{image.id}}"
+            >View This Travel</a
+          >
+        </div>
+      </div>
+    </div>
+    {% endfor %} {% endif %}
+  </div>
+</div>
+{% endblock %}
