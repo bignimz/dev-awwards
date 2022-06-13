@@ -3,12 +3,10 @@
 <div class="container py-5">
   <div class="login-form">
     <h1>Login</h1>
-    {% if message %}
-    <div>{{message}}</div>
-    {% endif %}
     <form method="POST">
-      {% csrf_token %} {{ login_form|crispy }}
-      <button class="btn btn-primary" type="submit">Login</button>
+      {% csrf_token %}
+      <div class="form-group form-control">{{ login_form|crispy }}</div>
+      <button class="btn btn-primary form-control" type="submit">Login</button>
     </form>
     <p class="text-center">
       Don't have an account? <a href="/register">Create an account</a>.
