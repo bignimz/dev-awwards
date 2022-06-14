@@ -15,5 +15,7 @@ urlpatterns=[
     path("logout", views.logout_request, name= "logout"),
     path("add_project/", views.new_project, name= "add_project"),
     path('search/', views.search, name='search'),
+    path('profile/<username>/', views.profile, name='profile'),
+    path('profile/<username>/settings', views.edit_profile, name='edit'),
 
 ]

@@ -14,11 +14,11 @@
         <div class="card-body">
           <h5 class="card-title">{{project.title}}</h5>
           <a
-            href="#"
+            href="{% url 'project-details' project_id=project.id %}"
             class="btn btn-primary"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal{{image.id}}"
-            >View This Travel</a
+            >View This Project</a
           >
         </div>
       </div>

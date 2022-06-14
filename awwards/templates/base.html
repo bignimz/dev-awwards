@@ -116,7 +116,6 @@
           <ul
             class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
           >
-            {% if user.is_authenticated %}
             <li>
               <a href="{% url 'index' %}" class="nav-link px-2 link-secondary"
                 >Home</a
@@ -141,6 +140,7 @@
               Search
             </button>
           </form>
+          {% if user.is_authenticated %}
           <div class="dropdown text-end">
             <a
               href="#"
@@ -171,8 +171,18 @@
                   >New project...</a
                 >
               </li>
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li>
+                <a class="dropdown-item" href="{% url 'edit' user.username  %}"
+                  >Settings</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="{% url 'profile' user.username %}"
+                  >Profile</a
+                >
+              </li>
               <li><hr class="dropdown-divider" /></li>
               <li>
                 <a class="dropdown-item" href="{% url 'logout' %}">Sign out</a>
@@ -182,11 +192,13 @@
           {% else %}
           <div class="col-md-3 text-end">
             <a href="{% url 'login' %}">
-              <button type="button" class="btn btn-outline-primary me-2">
+              <button type="button" class="btn btn-outline-dark me-2">
                 Login
               </button>
             </a>
-            <button type="button" class="btn btn-primary me-2">Sign-up</button>
+            <a href="{% url 'register' %}">
+              <button type="button" class="btn btn-dark me-2">Sign-up</button>
+            </a>
           </div>
           {% endif %}
         </div>

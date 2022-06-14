@@ -1,0 +1,958 @@
+[
+{
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+        "app_label": "admin",
+        "model": "logentry"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+        "app_label": "auth",
+        "model": "permission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+        "app_label": "auth",
+        "model": "group"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+        "app_label": "auth",
+        "model": "user"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+        "app_label": "contenttypes",
+        "model": "contenttype"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+        "app_label": "sessions",
+        "model": "session"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+        "app_label": "awwards",
+        "model": "profile"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+        "app_label": "awwards",
+        "model": "project"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+        "app_label": "awwards",
+        "model": "rating"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "l9u86trvmqs5n0ue8sh3fiwp89com7zu",
+    "fields": {
+        "session_data": ".eJxVjEEOgjAQRe_StWnaMmWqS_ecgcx0BosaSCisjHdXEha6_e-9_zI9bWvpt6pLP4q5GG9OvxtTfui0A7nTdJttnqd1Gdnuij1otd0s-rwe7t9BoVq-dWo84BmYvbQtcwyaEkTUqEGdCAZuCJDQZRmcok9DGAIQEZBjh2DeH9odN_E:1o0qNS:XQLlk9MYE5DnGuguXNiNziDB-1_Frs-Yx1Hp_qi00nU",
+        "expire_date": "2022-06-27T20:09:34.514Z"
+    }
+},
+{
+    "model": "awwards.profile",
+    "pk": 1,
+    "fields": {
+        "name": "Nimrod",
+        "image": "images/Watamu-Kenya.jpg",
+        "username": "nimrod",
+        "description": "Software Engineer & Avid web Researcher",
+        "location": "Nairobi, Kenya",
+        "contact": "nimrod@mail.com"
+    }
+},
+{
+    "model": "awwards.profile",
+    "pk": 2,
+    "fields": {
+        "name": "Martin",
+        "image": "images/baby-monkey.jpg",
+        "username": "marto",
+        "description": "Software Engineer",
+        "location": "Nairobi, Kenya",
+        "contact": "martin@gmail.com"
+    }
+},
+{
+    "model": "awwards.profile",
+    "pk": 3,
+    "fields": {
+        "name": "Marty",
+        "image": "images/baby-monkey.jpg",
+        "username": "marty",
+        "description": "Software Engineer",
+        "location": "Nairobi, Kenya",
+        "contact": "marty@gmail.com"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+        "name": "Can add permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+        "name": "Can change permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+        "name": "Can view permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+        "name": "Can add group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+        "name": "Can change group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+        "name": "Can delete group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+        "name": "Can view group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+        "name": "Can add user",
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+        "name": "Can change user",
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+        "name": "Can delete user",
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+        "name": "Can view user",
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "codename": "view_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+        "name": "Can add content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+        "name": "Can change content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+        "name": "Can view content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+        "name": "Can add session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+        "name": "Can change session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+        "name": "Can delete session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+        "name": "Can view session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+        "name": "Can add profile",
+        "content_type": [
+            "awwards",
+            "profile"
+        ],
+        "codename": "add_profile"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+        "name": "Can change profile",
+        "content_type": [
+            "awwards",
+            "profile"
+        ],
+        "codename": "change_profile"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+        "name": "Can delete profile",
+        "content_type": [
+            "awwards",
+            "profile"
+        ],
+        "codename": "delete_profile"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+        "name": "Can view profile",
+        "content_type": [
+            "awwards",
+            "profile"
+        ],
+        "codename": "view_profile"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+        "name": "Can add project",
+        "content_type": [
+            "awwards",
+            "project"
+        ],
+        "codename": "add_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+        "name": "Can change project",
+        "content_type": [
+            "awwards",
+            "project"
+        ],
+        "codename": "change_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+        "name": "Can delete project",
+        "content_type": [
+            "awwards",
+            "project"
+        ],
+        "codename": "delete_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+        "name": "Can view project",
+        "content_type": [
+            "awwards",
+            "project"
+        ],
+        "codename": "view_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+        "name": "Can add rating",
+        "content_type": [
+            "awwards",
+            "rating"
+        ],
+        "codename": "add_rating"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+        "name": "Can change rating",
+        "content_type": [
+            "awwards",
+            "rating"
+        ],
+        "codename": "change_rating"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+        "name": "Can delete rating",
+        "content_type": [
+            "awwards",
+            "rating"
+        ],
+        "codename": "delete_rating"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+        "name": "Can view rating",
+        "content_type": [
+            "awwards",
+            "rating"
+        ],
+        "codename": "view_rating"
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$320000$A7QwbQqJqKM7LujvHtFWBg$fk7UyskZ02NIYPpcIWpLY9qNrfNNKaIUo1PWUa/SM/8=",
+        "last_login": "2022-06-13T20:09:34.511Z",
+        "is_superuser": true,
+        "username": "nimrod",
+        "first_name": "",
+        "last_name": "",
+        "email": "nimrod@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2022-06-11T10:22:13.263Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$320000$ZDQeaDg6MCcO4iJNceWfHX$pC8aMjVhaZyw+/eaGAJoXEBYUe3pHAfN/VqO+IHfUjk=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "marto",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-06-11T10:45:01.985Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$320000$tMZxrq4umQUgdhYncTijoj$osGfywhbegPbPD0+oOKjsmvntjVjtWBhxQvug0g6BF8=",
+        "last_login": "2022-06-11T13:29:40.715Z",
+        "is_superuser": false,
+        "username": "bignimz",
+        "first_name": "",
+        "last_name": "",
+        "email": "superadmin@admin.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-06-11T12:49:19.421Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$320000$3XD9sxgax4PpmGmIofc3VC$NNqUkw6MtzFGYPIeXnrId2jbslJzFQef13NbesIMGEk=",
+        "last_login": "2022-06-11T21:45:52.441Z",
+        "is_superuser": false,
+        "username": "mike",
+        "first_name": "",
+        "last_name": "",
+        "email": "michaelm@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-06-11T13:37:09.614Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$320000$OIxQ09YSmRLIWAZr1tC3nM$wTwgaF/scvfblaBZx4/qc1GJQ2heOtEy/RPlcQHraso=",
+        "last_login": "2022-06-13T18:35:45.563Z",
+        "is_superuser": false,
+        "username": "hulla",
+        "first_name": "",
+        "last_name": "",
+        "email": "hullaballoo@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-06-12T12:12:48.520Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "awwards.project",
+    "pk": 1,
+    "fields": {
+        "title": "Audma Insurance",
+        "image": "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y",
+        "description": "",
+        "link": "http://www.audmainsurance.co.ke",
+        "user": [
+            "nimrod"
+        ],
+        "posted": "2022-06-11T10:41:30.662Z"
+    }
+},
+{
+    "model": "awwards.project",
+    "pk": 2,
+    "fields": {
+        "title": "Github Finder",
+        "image": "https://images.unsplash.com/photo-1531379410502-63bfe8cdaf6f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aWRlYXxlbnwwfHwwfHw%3D&w=1000&q=80",
+        "description": "",
+        "link": "http://www.audmainsurance.co.ke",
+        "user": [
+            "nimrod"
+        ],
+        "posted": "2022-06-12T13:47:54.540Z"
+    }
+},
+{
+    "model": "awwards.project",
+    "pk": 3,
+    "fields": {
+        "title": "Car Dealer",
+        "image": "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y",
+        "description": "",
+        "link": "http://www.audmainsurance.co.ke",
+        "user": [
+            "marto"
+        ],
+        "posted": "2022-06-12T16:43:37.187Z"
+    }
+},
+{
+    "model": "awwards.project",
+    "pk": 4,
+    "fields": {
+        "title": "Travel Gallery App",
+        "image": "https://images.unsplash.com/photo-1655043126269-d93dc7917a1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+        "description": "",
+        "link": "http://www.audmainsurance.co.ke",
+        "user": [
+            "marto"
+        ],
+        "posted": "2022-06-12T16:53:08.797Z"
+    }
+},
+{
+    "model": "awwards.project",
+    "pk": 5,
+    "fields": {
+        "title": "Cheki News",
+        "image": "https://github.com/bignimz/cheki-news/raw/main/app/static/images/cheki-news-screenshot.png",
+        "description": "Cheki News is a web application developed using Python / Flask framework that fetches and displays world news from different sources using the NewsApi .",
+        "link": "https://cheki-app.herokuapp.com",
+        "user": [
+            "nimrod"
+        ],
+        "posted": "2022-06-13T10:48:38.146Z"
+    }
+},
+{
+    "model": "awwards.project",
+    "pk": 6,
+    "fields": {
+        "title": "Blog App",
+        "image": "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y",
+        "description": "This a blog application built using python django",
+        "link": "https://cheki-app.herokuapp.com",
+        "user": [
+            "nimrod"
+        ],
+        "posted": "2022-06-14T06:05:36.052Z"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2022-06-11T10:32:37.615Z",
+        "user": [
+            "nimrod"
+        ],
+        "content_type": [
+            "awwards",
+            "profile"
+        ],
+        "object_id": "1",
+        "object_repr": "nimrod",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2022-06-11T10:41:30.669Z",
+        "user": [
+            "nimrod"
+        ],
+        "content_type": [
+            "awwards",
+            "project"
+        ],
+        "object_id": "1",
+        "object_repr": "Audma Insurance",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2022-06-11T10:45:02.246Z",
+        "user": [
+            "nimrod"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "2",
+        "object_repr": "marto",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2022-06-11T10:45:53.816Z",
+        "user": [
+            "nimrod"
+        ],
+        "content_type": [
+            "awwards",
+            "profile"
+        ],
+        "object_id": "2",
+        "object_repr": "marto",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2022-06-12T13:47:54.543Z",
+        "user": [
+            "nimrod"
+        ],
+        "content_type": [
+            "awwards",
+            "project"
+        ],
+        "object_id": "2",
+        "object_repr": "Github Finder",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2022-06-12T17:02:53.266Z",
+        "user": [
+            "nimrod"
+        ],
+        "content_type": [
+            "awwards",
+            "project"
+        ],
+        "object_id": "4",
+        "object_repr": "Travel Gallery App",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Profile\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2022-06-12T17:02:59.553Z",
+        "user": [
+            "nimrod"
+        ],
+        "content_type": [
+            "awwards",
+            "project"
+        ],
+        "object_id": "3",
+        "object_repr": "Car Dealer",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Profile\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2022-06-12T17:03:05.632Z",
+        "user": [
+            "nimrod"
+        ],
+        "content_type": [
+            "awwards",
+            "project"
+        ],
+        "object_id": "2",
+        "object_repr": "Github Finder",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Profile\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2022-06-12T17:03:11.748Z",
+        "user": [
+            "nimrod"
+        ],
+        "content_type": [
+            "awwards",
+            "project"
+        ],
+        "object_id": "1",
+        "object_repr": "Audma Insurance",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Profile\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2022-06-12T17:14:09.666Z",
+        "user": [
+            "nimrod"
+        ],
+        "content_type": [
+            "awwards",
+            "project"
+        ],
+        "object_id": "4",
+        "object_repr": "Travel Gallery App",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"User\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2022-06-12T17:14:15.256Z",
+        "user": [
+            "nimrod"
+        ],
+        "content_type": [
+            "awwards",
+            "project"
+        ],
+        "object_id": "3",
+        "object_repr": "Car Dealer",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"User\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2022-06-12T17:14:29.750Z",
+        "user": [
+            "nimrod"
+        ],
+        "content_type": [
+            "awwards",
+            "project"
+        ],
+        "object_id": "2",
+        "object_repr": "Github Finder",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"User\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2022-06-12T17:14:34.784Z",
+        "user": [
+            "nimrod"
+        ],
+        "content_type": [
+            "awwards",
+            "project"
+        ],
+        "object_id": "1",
+        "object_repr": "Audma Insurance",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"User\"]}}]"
+    }
+}
+]

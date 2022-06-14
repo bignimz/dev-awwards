@@ -1,13 +1,18 @@
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
 
-/* body {
-    background-color: black;
-} */
+body {
+    overflow-x: hidden;
+}
 
 /* .dark-theme {
     background-color: #111;
 } */
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
 
 .hero {
     height: 100vh;
@@ -83,16 +88,22 @@
     top: -5px;
 }
 
+.project-card {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0, .7));
+}
+
 /* .devaw-body {
     display: block;
 } */
 
 .overlay {
+    width: 350px;
+    height: 350px;
     background-color: black;
-    position: absolute;
-    top: 0;
+    position: relative;
+    top: -30px;
     left: 0;
-    z-index: 10;
+    z-index: 99;
 }
 
 .card-body {

@@ -10,7 +10,7 @@ from django.db.models import Q
 
 import requests
 
-from .forms import NewUserForm, ProjectForm
+from .forms import NewUserForm, ProjectForm, ReviewForm, UpdateUserProfileForm, UpdateUserForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
@@ -52,10 +52,41 @@ def logout_request(request):
     messages.info(request, "You have successfully logged out.") 
     return redirect("login")
 
+# User Profile
+def profile(request, username):
+    user_profile = get_object_or_404(User, username=username)
+    if request.user == user_profile:
+        return redirect('profile', username=request.user.username)
+    context = {
+        'user_profile': user_profile,
+    }
+    return render(request, 'profile.html', context)
+
+
+@login_required(login_url='login')
+def edit_profile(request, username):
+    user = User.objects.get(username=username)
+    if request.method == 'POST':
+        user_form = UpdateUserForm(request.POST, instance=request.user)
+        profile_form = UpdateUserProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            return redirect('profile', user.username)
+    else:
+        user_form = UpdateUserForm(instance=request.user)
+        profile_form = UpdateUserProfileForm(instance=request.user.profile)
+    context = {
+        'user_form': user_form,
+        'profile_form': profile_form
+    }
+    return render(request, 'edit_profile.html', context)
+
 
 def index(request):
+    form = ReviewForm()
     projects = requests.get('http://127.0.0.1:8000/project/').json()
-    return render(request, "index.html", {"projects": projects})
+    return render(request, "index.html", {"projects": projects, "form": form})
 
 def project_details(request, project_id):
     # This restricts only logged in users to access this page
@@ -95,6 +126,26 @@ def search(request):
         else:
             message = "You haven't searched for any image"
             return render(request, 'search.html',{"message":message})
+
+# Project Rating
+def review(request,project_id ):
+    user = request.user
+    project=Project.objects.get(id=project_id)
+    if request.method == 'POST':
+        form=ReviewForm(request.POST )
+        if form.is_valid():
+            form=form.save(commit=False)
+            form.project=project
+            form.save()
+            design = request.POST['design']
+            usability = request.POST['usability']
+            content = request.POST['content']
+            rates=(int(design)+int(usability)+int(content))/3
+
+        return render(request, 'project.html', {'rates':rates,'project':project})
+    else:
+        form=ReviewForm()
+    return render(request, 'project.html', {'user':user,'form':form,'project':project})
 
 
 
