@@ -23,6 +23,11 @@ As a user, I would like to:
 2. Bootstrap5/ Html5/JavaScript/CSS3 - Frontend
 3. PostgreSQL - Backend(Database)
 
+## API Endpoints Used
+1. Project Endpoint: https://devawwwards.herokuapp.com/project/
+2. Profile Endpoint: https://devawwwards.herokuapp.com/profile/
+
+
 ## Setup & Installation 
 
 ### Prerequisites
