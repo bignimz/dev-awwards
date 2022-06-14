@@ -85,7 +85,7 @@ def edit_profile(request, username):
 
 def index(request):
     form = ReviewForm()
-    projects = requests.get('http://127.0.0.1:8000/project/').json()
+    projects = requests.get('https://devawwwards.herokuapp.com/project/').json()
     return render(request, "index.html", {"projects": projects, "form": form})
 
 def project_details(request, project_id):
